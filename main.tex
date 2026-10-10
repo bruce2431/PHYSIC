@@ -29,7 +29,7 @@
 在高中学习物理竞赛的时候，我就常常发现经典物理其实就是一个巨大的解方程，你只需要找到足够的约束方程便可以解出所有的未知量，只不过难易程度不同罢了。当时让我开窍的题是第38届物理竞赛的一道题:
 
 \begin{center}
-    \includegraphics[width=1\textwidth]{image.png}
+    \includegraphics[width=1\textwidth]{image/image.png}
 \end{center}
 
 这道题完全打败了当时的我，我根本无从下手，这些复杂的受力和相对运动，我根本无法依靠我的直觉列出所有方程。而当我听了老师的讲解后我才知道，体系化的解法并非束缚，而是一种应万变于不变之法。要解决它我不需要劳费神思去想想它的运动，而只需要列出每一个物体的牛二方程：
@@ -187,7 +187,7 @@ d\hat{\mathbf{r}}= -d{\theta} \hat{\mathbf{r}}
 在处理实际问题时，通常先进行受力分析，列出平衡方程，之后再结合几何约束与边界条件求解。这部分其实有用的也就是个牛顿方程会给出约束条件，其它的在经典力学都是作为公理存在的。为了更好的说明牛顿定律在静力学平衡中不可逾越的地位，我们来看这道来自第41届全国中学生物理竞赛预赛的题目：
 
 \begin{center}
-    \includegraphics[width=1\textwidth]{eg2.png}
+    \includegraphics[width=1\textwidth]{image/eg2.png}
 \end{center}
 
 我们很清楚，静止的点一定受力平衡，所以我们一定想列出膨胀和冷却时候的受力方程。在这里我给出诚恳的建议：一定要提前取正方向，不然在计算的时候会被正负号搞得头大。我们设沿斜面向上为正方向，$x$ 为 $PA$ 的长度。既然 $P$ 点是相对斜面静止的点，它两侧的棒段就必然存在相对滑动的趋势。为了找准摩擦力和内力的方向，我们可以把棒在 $P$ 点处物理上断开，分别对 $PA$ 段和 $PB$ 段进行隔离受力分析：
@@ -830,7 +830,7 @@ F(v)dv = 4\pi \left( \frac{m}{2\pi k_BT} \right)^{3/2} v^2 \exp\left( -\frac{mv^
 正是这两者的竞争，造就了麦克斯韦分布特有的“驼峰”形状。它生动地展示了微观分子的热运动是如何在能量的束缚与空间的几何增长之间，找到那条微妙的平衡曲线的。
 
 \begin{center}
-    \includegraphics[width=0.5\textwidth]{Maxwell_speed_distribution.png}
+    \includegraphics[width=0.5\textwidth]{image/Maxwell_speed_distribution.png}
 \end{center}
 
 从几何上理解了 \(4\pi v^2 dv\) 的来源后，函数 \(F(v) dv\) 的物理本质便一目了然：
@@ -1267,7 +1267,7 @@ W=\int p\,\mathrm dV
 在所有可能的热力学循环里，有一个循环的地位几乎像神灵一样，那就是卡诺循环。它不是蒸汽机，也不是内燃机，而是一个理想化的思想模型——由两个等温过程和两个绝热过程交替组成。如果你把这个循环画在一张 $pV$ 图上，它就像一只被压扁了的矩形，只不过上下底是水平的等温线，左右边是陡峭的绝热线。
 
 \begin{center}
-    \includegraphics[width=0.7\textwidth]{kanuoxunhuan.png}
+    \includegraphics[width=0.7\textwidth]{image/kanuoxunhuan.png}
 \end{center}
 
 循环可以这样走：第一步，让系统在高温 $T_h$ 下等温膨胀，从高温热源吸热 $Q_h$，对外做正功，内能纹丝不动；第二步，让它绝热膨胀，温度从 $T_h$ 掉到 $T_c$，继续对外做功，但靠的是消耗自身内能；第三步，在低温 $T_c$ 下等温压缩，外界对系统做功，系统向低温热源放热 $Q_c$；第四步，绝热压缩，温度从 $T_c$ 回升到 $T_h$，外界继续对系统做功，把内能压回来。四步走完，机器回到起点，干干净净地走完一圈。
@@ -1468,7 +1468,7 @@ v_p = \frac{dx}{dt} = \frac{\omega}{k}.
 
 \begin{wrapfigure}{L}{0.32\textwidth}
   \begin{center}
-    \includegraphics[width=0.3\textwidth]{qunv.png}
+    \includegraphics[width=0.3\textwidth]{image/qunv.png}
   \end{center}
     \caption{一个群的波包不断移动}
     \label{fig:qunv}
@@ -1529,7 +1529,7 @@ A^2 = |A_1 + A_2 e^{i\delta}|^2 = A_1^2 + A_2^2 + 2A_1A_2\cos\delta.
 
 \begin{wrapfigure}{L}{0.32\textwidth}
   \begin{center}
-    \includegraphics[width=0.3\textwidth]{rotvec1.png}
+    \includegraphics[width=0.3\textwidth]{image/rotvec1.png}
   \end{center}
     \caption{旋转矢量法看波合成}
     \label{fig:rotvec1}
@@ -1624,7 +1624,7 @@ Z = a\zeta + b\zeta^{-1},\qquad \overline{Z} = \overline{a}\zeta^{-1} + \overlin
 这正是我们之前用代数方法得到的椭圆方程！复数方法并没有让推导变得更短——实际上它可能更长——但它揭示了椭圆的本质：椭圆是单位圆 $\zeta=e^{i\omega t}$ 在变换 $Z = a\zeta + b\zeta^{-1}$ 下的像。当 $\sin\delta=0$ 时变换退化，椭圆退化为直线段。
 
 \begin{center}
-    \includegraphics[width=\textwidth]{lisaru.jpg}
+    \includegraphics[width=\textwidth]{image/lisaru.jpg}
 \end{center}
 
 复数方法的真正价值不在于简化计算，而在于提供几何直觉：$Z(t)$ 不过是两个反向旋转矢量的和，椭圆的形状完全由这两个矢量的长度和夹角决定。一旦你接受了这个图像，你甚至不需要记住那个椭圆方程——你可以在脑子里“看见”两个旋转矢量，从而立即知道轨迹是椭圆、直线还是圆。这正是费曼所说的“理解”与“计算”的区别。
@@ -1649,7 +1649,7 @@ y = 2A\cos(kx)\cos(\omega t).
 
 \begin{wrapfigure}{L}{0.32\textwidth}
   \begin{center}
-    \includegraphics[width=0.3\textwidth]{standwav.png}
+    \includegraphics[width=0.3\textwidth]{image/standwav.png}
   \end{center}
     \caption{反射波的驻波}
     \label{fig:standwav}
@@ -1701,7 +1701,7 @@ n_1 \sin i = n_2 \sin r.
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.62\textwidth]{fanshe.jpg}
+\includegraphics[width=0.62\textwidth]{image/fanshe.jpg}
 \caption{反射定律与折射定律}
 \label{fig:fanshezheshe}
 \end{figure}
@@ -1715,7 +1715,7 @@ n_1 \sin i = n_2 \sin r.
 这就是\textbf{惠更斯-菲涅尔原理}的核心：波在传播过程中，波阵面上的每一点都成为一个相干次波源，这些次波在空间相遇时会发生干涉，而观察到的光场就是所有次波干涉叠加的总效果。
 
 \begin{wrapfigure}{L}{0.32\textwidth}
-    \includegraphics[width=0.32\textwidth]{SigmaP.png}
+    \includegraphics[width=0.32\textwidth]{image/SigmaP.png}
     \caption{波阵面为 $\Sigma$在空间某点 $P$ 产生的干涉}
     \caption{反射波的驻波}
     \label{fig:fanshezheshe}
@@ -1780,7 +1780,7 @@ r = \frac{n_1 - n_2}{n_1 + n_2}.
 \centering
 \begin{subfigure}[b]{\textwidth}
     \centering
-    \includegraphics[width=0.6\textwidth]{Fraunhofer1.png}
+    \includegraphics[width=0.6\textwidth]{image/Fraunhofer1.png}
     \caption{夫琅禾费衍射装置}
     \label{fig:Fraunhofer1}
 \end{subfigure}
@@ -1789,7 +1789,7 @@ r = \frac{n_1 - n_2}{n_1 + n_2}.
 
 \begin{subfigure}[b]{\textwidth}
     \centering
-    \includegraphics[width=0.6\textwidth]{Fraunhofer2.png}
+    \includegraphics[width=0.6\textwidth]{image/Fraunhofer2.png}
     \caption{夫琅禾费衍射装置光路}
     \label{fig:Fraunhofer2}
 \end{subfigure}
@@ -1803,7 +1803,7 @@ r = \frac{n_1 - n_2}{n_1 + n_2}.
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.62\textwidth]{0.5wave.jpg}
+\includegraphics[width=0.62\textwidth]{image/0.5wave.jpg}
 \caption{半波面法}
 \label{fig:fanshezheshe}
 \end{figure}
@@ -1834,7 +1834,7 @@ I(\theta)=I_0\left(\frac{\sin\beta}{\beta}\right)^2,\quad \beta=\frac{\pi a\sin\
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.62\textwidth]{Fraunhofer3.png}
+\includegraphics[width=0.62\textwidth]{image/Fraunhofer3.png}
 \caption{衍射图样}
 \label{fig:Fraunhofer3}
 \end{figure}
@@ -1847,7 +1847,7 @@ I(\theta)=I_0\left(\frac{\sin\beta}{\beta}\right)^2,\quad \beta=\frac{\pi a\sin\
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.55\textwidth]{Airy_disk.png}
+\includegraphics[width=0.55\textwidth]{image/Airy_disk.png}
 \caption{圆孔夫琅禾费衍射图样（艾里斑）}
 \label{fig:airy_disk}
 \end{figure}
@@ -1890,7 +1890,7 @@ I(\theta) = I_0 \left[\frac{2J_1(x)}{x}\right]^2, \quad x = \frac{\pi D}{\lambda
 \end{itemize}
 
 \begin{wrapfigure}{L}{0.32\textwidth}
-    \includegraphics[width=0.32\textwidth]{Circular_diffraction_pattern.png}
+    \includegraphics[width=0.32\textwidth]{image/Circular_diffraction_pattern.png}
     \caption{圆孔夫琅禾费衍射截面光强分布（艾里斑与衍射环）}
     \label{fig:circular_diffraction}
     %\vspace{10pt}
@@ -1917,7 +1917,7 @@ r = f\cdot\theta \approx 1.22\frac{f\lambda}{D}
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.62\textwidth]{grating.png}
+\includegraphics[width=0.62\textwidth]{image/grating.png}
 \caption{光栅衍射光路图}
 \label{fig:grating}
 \end{figure}
@@ -1952,17 +1952,17 @@ R = \frac{\lambda}{\Delta\lambda} = kN,
 \centering
 \begin{subfigure}[b]{\textwidth}
     \centering
-    \includegraphics[width=0.8\textwidth]{grating1.png}
+    \includegraphics[width=0.8\textwidth]{image/grating1.png}
 \end{subfigure}
 
 \begin{subfigure}[b]{\textwidth}
     \centering
-    \includegraphics[width=0.8\textwidth]{grating2.jpg}
+    \includegraphics[width=0.8\textwidth]{image/grating2.jpg}
 \end{subfigure}
 
 \begin{subfigure}[b]{\textwidth}
     \centering
-    \includegraphics[width=0.8\textwidth]{grating3.jpg}
+    \includegraphics[width=0.8\textwidth]{image/grating3.jpg}
 \end{subfigure}
 
 \caption{夫琅禾费衍射}
@@ -2027,7 +2027,7 @@ $R_1$和$R_2$分别为透镜两个球面的曲率半径，符号按光线入射�
 
 \begin{wrapfigure}{R}{0.4\textwidth}
   \begin{center}
-    \includegraphics[width=0.4\textwidth]{denghou.png}
+    \includegraphics[width=0.4\textwidth]{image/denghou.png}
   \end{center}
     \caption{等厚干涉}
     \label{fig:denghou}
@@ -2058,7 +2058,7 @@ $R_1$和$R_2$分别为透镜两个球面的曲率半径，符号按光线入射�
 
 \begin{wrapfigure}{L}{0.37\textwidth}
   \begin{center}
-    \includegraphics[width=0.35\textwidth]{NewtonRing.png}
+    \includegraphics[width=0.35\textwidth]{image/NewtonRing.png}
   \end{center}
     \caption{牛顿环}
     \label{fig:NewtonRing}
@@ -2083,7 +2083,7 @@ R^2 = r^2 + (R - d)^2 \longrightarrow r^2 = 2Rd.
 
 \begin{wrapfigure}{R}{0.5\textwidth}
   \begin{center}
-    \includegraphics[width=0.48\textwidth]{Pijian.png}
+    \includegraphics[width=0.48\textwidth]{image/Pijian.png}
   \end{center}
     \caption{劈尖干涉示意图}
     \label{fig:Pijian}
@@ -2119,14 +2119,14 @@ R^2 = r^2 + (R - d)^2 \longrightarrow r^2 = 2Rd.
 \centering
 \begin{subfigure}[b]{0.45\textwidth}
     \centering
-    \includegraphics[width=\textwidth]{Mchesonint1.png}
+    \includegraphics[width=\textwidth]{image/Mchesonint1.png}
     \caption{$M_1$和$M_2$严格垂直时光路示意图及等倾条纹照相}
     \label{fig:michelson1}
 \end{subfigure}
 \hfill
 \begin{subfigure}[b]{0.45\textwidth}
     \centering
-    \includegraphics[width=\textwidth]{Mchesonint2.png}
+    \includegraphics[width=\textwidth]{image/Mchesonint2.png}
     \caption{$M_1$和$M_2$不严格垂直时光路示意图及等厚条纹照相}
     \label{fig:michelson2}
 \end{subfigure}
@@ -2164,7 +2164,7 @@ d = d_1 - d_2 \quad (\text{或取绝对值})
 \centering
 \begin{subfigure}[b]{\textwidth}
     \centering
-    \includegraphics[width=\textwidth]{Mchesonint3.png}
+    \includegraphics[width=\textwidth]{image/Mchesonint3.png}
     \caption{$M_1$不同位置等倾干涉条纹}
     \label{fig:michelson3}
 \end{subfigure}
@@ -2173,7 +2173,7 @@ d = d_1 - d_2 \quad (\text{或取绝对值})
 
 \begin{subfigure}[b]{\textwidth}
     \centering
-    \includegraphics[width=\textwidth]{Mchesonint4.png}
+    \includegraphics[width=\textwidth]{image/Mchesonint4.png}
     \caption{$M_1$不同位置等厚干涉条纹}
     \label{fig:michelson4}
 \end{subfigure}
@@ -2201,7 +2201,7 @@ d = d_1 - d_2 \quad (\text{或取绝对值})
 
 \begin{figure}[H]
   \begin{center}
-    \includegraphics[width=0.5\textwidth]{Shuangfeng.png}
+    \includegraphics[width=0.5\textwidth]{image/Shuangfeng.png}
   \end{center}
     \caption{双缝干涉示意图}
     \label{fig:Shuangfeng}
@@ -2253,7 +2253,7 @@ d = d_1 - d_2 \quad (\text{或取绝对值})
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.6\textwidth]{FeynmanPath.png}  % 如果有图的话
+\includegraphics[width=0.6\textwidth]{image/FeynmanPath.png}  % 如果有图的话
 \caption{费曼路径积分示意图：光从源 $S$ 到点 $P$ 可以沿任意路径传播，每条路径贡献一个相位 $e^{ikL}$。}
 \label{fig:feynman}
 \end{figure}
@@ -3376,7 +3376,7 @@ F_{\mu\nu}\tilde F^{\mu\nu}
 
 \begin{wrapfigure}{L}{0.32\textwidth}
   \begin{center}
-    \includegraphics[width=0.3\textwidth]{flux.png}
+    \includegraphics[width=0.3\textwidth]{image/flux.png}
   \end{center}
     \caption{小正方形环积分}
     \label{fig:closurface}
@@ -3390,7 +3390,7 @@ F_{\mu\nu}\tilde F^{\mu\nu}
 
 \begin{wrapfigure}{R}{0.32\textwidth}
   \begin{center}
-    \includegraphics[width=0.3\textwidth]{divsurf.png}
+    \includegraphics[width=0.3\textwidth]{image/divsurf.png}
   \end{center}
     \caption{小正方形环积分}
     \label{fig:closurface}
@@ -3399,7 +3399,7 @@ F_{\mu\nu}\tilde F^{\mu\nu}
 我们把这个闭合的三维区域切成两块，比如分成 $V_1$ 和 $V_2$，它们的边界曲面分别是 $S_1$ 和 $S_2$，而公共截面则出现了两次。这时，一个绝妙的抵消发生了——在公共截面上，$S_1$ 的外法向与 $S_2$ 的外法向恰好相反，因此分别计算 $S_1$ 和 $S_2$ 上的通量再相加时，截面的贡献正好一正一负，爽快地抵消为零。剩下的部分拼起来，恰好就是原来那个闭合曲面 $S$ 上的总通量。所以说，先分割再求和，与直接对整个 $S$ 积分，结果完全一样。于是乎，我们就可以把任意一个复杂的三维体切割成无数个小正方体来讨论。吱吱吱吱吱吱吱吱吱吱吱吱吱吱吱吱吱吱吱吱吱吱吱吱吱吱吱吱吱吱吱吱吱吱吱吱吱吱吱吱吱吱吱在
 \begin{wrapfigure}{L}{0.32\textwidth}
   \begin{center}
-    \includegraphics[width=0.3\textwidth]{suqflux.png}
+    \includegraphics[width=0.3\textwidth]{image/suqflux.png}
   \end{center}
     \caption{小正方形环积分}
     \label{fig:closurface}

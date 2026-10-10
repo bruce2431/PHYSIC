@@ -32,3 +32,6 @@ desktop.ini
 # Windows 下载标记等副产物文件
 *Zone.Identifier
 :Zone.Identifier
+
+# 参考资料：未随书发布
+*.docx

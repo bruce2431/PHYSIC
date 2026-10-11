@@ -6,20 +6,22 @@
 
 ## 编译
 
-需要 **LuaLaTeX**（TeX Live 或 MiKTeX 完整安装均可）。
+需要 **XeLaTeX**（TeX Live 或 MiKTeX 完整安装均可）。
 
 ```bash
-latexmk -lualatex -synctex=1 main.tex
+latexmk -xelatex -synctex=1 -auxdir=.build main.tex
 ```
 
-不用 `latexmk` 的话，手动跑两遍以生成目录与交叉引用：
+`-auxdir=.build` 把编译中间产物收进 `.build/`，成品 `main.pdf` 仍出在仓库根（需要 latexmk 4.55 以上；旧版去掉该参数即可，中间产物会落在当前目录）。
+
+不用 `latexmk` 的话，手动跑两遍以生成目录与交叉引用（中间产物落在当前目录）：
 
 ```bash
-lualatex main.tex
-lualatex main.tex
+xelatex main.tex
+xelatex main.tex
 ```
 
-产物为 `main.pdf`。`main.tex` 首行有 `% !TEX program = lualatex`，TeXstudio / VS Code (LaTeX Workshop) 会直接识别编译器。
+产物为 `main.pdf`。`main.tex` 首行有 `% !TEX program = xelatex`，TeXstudio / VS Code (LaTeX Workshop) 会直接识别编译器。
 
 **依赖宏包**：`ctex`、`amsmath`、`amssymb`、`amsthm`、`bm`、`graphicx`、`hyperref`、`booktabs`、`tikz`（含 `arrows.meta`、`positioning`、`calc` 库）、`wrapfig`、`float`、`subcaption`、`tabularx`。
 
@@ -37,10 +39,12 @@ lualatex main.tex
 main.tex        全文（含导言区与全部章节）
 main.pdf        编译成品
 image/          全部插图，由 main.tex 里的 \includegraphics{image/文件名} 引用
+.build/         编译中间产物（.aux / .log / .out / .toc / .xdv 等），可整个删掉重新编译
 ```
 
 ## 说明
 
+- 当前版本 **v1.1.0**（2026-10-11）：编译引擎由 LuaLaTeX 改为 XeLaTeX（xelatex 下 `ctex` 走 xeCJK，省掉 luatexja 每次编译约 21 秒的固定开销）。
 - 所有插图集中在 `image/` 目录下，`main.tex` 以 `image/文件名` 引用；改动插图不会自动被 LaTeX 感知，必要时先删旧的 `.aux` 再编。
 - 仓库**不含** LaTeX 中间产物（`.aux` / `.log` / `.out` / `.toc` / `.fls` / `.fdb_latexmk` / `.synctex.gz`），它们由编译重新生成。
 - 若需要点击 PDF 跳回源码，编译时保留 `-synctex=1`，用支持 SyncTeX 的阅读器打开 `main.pdf` 即可。

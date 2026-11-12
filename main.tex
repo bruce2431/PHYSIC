@@ -1361,7 +1361,7 @@ S_{\text{total}}(E_1) = k_{\text{B}}\ln\Omega_1(E_1) + k_{\text{B}}\ln\Omega_2(E
 \frac{\mathrm dS_1}{\mathrm dE_1} = \frac{\mathrm dS_2}{\mathrm dE_2}。
 \]
 
-也就是说，热平衡时，两个系统的**熵对能量的变化率**必然相等。这是一个不依赖于任何宏观经验、纯粹从统计计数中推导出来的共同强度量。我们把它记为
+也就是说，热平衡时，两个系统的\textbf{熵对能量的变化率}必然相等。这是一个不依赖于任何宏观经验、纯粹从统计计数中推导出来的共同强度量。我们把它记为
 \[
 \frac{1}{T} \equiv \frac{\mathrm dS}{\mathrm dE}。
 \]
@@ -3476,9 +3476,10 @@ F_{\mu\nu}\tilde F^{\mu\nu}
 这被称为格林公式的切向形式，因为它处理的是矢量场沿边界切线方向的分量。
 
 如果把二维矢量场看作三维矢量场在前两维的投影，它的旋度只有 $z$ 分量，即 $(\nabla \times \vec{F})_z$。于是格林公式可以写成
-\[
-\oint_C \vec{F} \cdot d\vec{r} = \iint_D (\nabla \times \vec{F}) \cdot \vec{n} \, dx\,dy.
-\]
+\begin{equation}
+\oint_C \vec{F} \cdot d\vec{r} = \iint_D (\nabla \times \vec{F}) \cdot d\vec{S} .
+\label{eq:stokes}
+\end{equation}
 这就是斯托克斯公式，是一种更全面的描述。
 
 \[
@@ -4134,7 +4135,11 @@ E\approx\frac{\sigma}{2\varepsilon_0}\cdot\frac{R^2}{2x^2}
     =k\frac{I\,a\,\frac{a}{\cos^2\theta}\,\mathrm{d}\theta}{\left(\frac{a}{\cos\theta}\right)^3}
     =k\frac{I\cos\theta}{a}\,\mathrm{d}\theta
 \]
-这个积分十分简单，所以最后我们就得到了无限长通电直导线的空间电场分布了，它是反比于点到导电的距离，正比于电流大小，可见其确实是环形的分布。
+这个积分十分简单，对无限长导线就是在$\pi$区间内对三角函数积分，从而贡献了银子$2$，得到：
+\[
+B=\frac{\mu_0 I}{2\pi r},
+\]
+方向由右手螺旋定则确定。这就是无限长通电直导线的空间电场分布了，它是反比于点到导电的距离，正比于电流大小，可见其确实是环形的分布。
 
 这是个及其美好的结果，它是完全的圆形分布，说明它是满旋的，也就是说一定存在另一个矢量，我们记为$\vec{A}$使得满足：
 \[
@@ -4165,16 +4170,10 @@ d\vec{B}=\nabla \times d\vec{A}
 
 这个问题也是绝大多数理论物理学家所面临的，猜想在这里，这个数学工具是否是正确的？
 
-由乘积法则得到
+对于常矢量\(\vec{a}\) ，$\nabla\times\vec{a}=0,$所以由乘积法则得到
 \[
 \nabla\times(f\vec{a})
-=f(\nabla\times\vec{a})+\nabla f\times\vec{a}.
-\]
-如果 \(\vec{a}\) 为常矢量，则$\nabla\times\vec{a}=0,$所以
-\[
-\nabla\times(f\vec{a})
-=0+\nabla f\times\vec{a}
-=\nabla f\times\vec{a}.
+=f(\nabla\times\vec{a})+\nabla f\times\vec{a}.=0+\nabla f\times\vec{a}=\nabla f\times\vec{a}.
 \]
 因此
 \[
@@ -4182,7 +4181,7 @@ d\vec{B}=\nabla \times d\vec{A}
 \nabla\times(f\vec{a})=\nabla f\times\vec{a}.
 }
 \]
-所以最终我们得到：
+没错这个数学工具的证明就是这么简单，因为求导就是求导，对什么样的量求导都不改变其本质。所以最终我们得到：
 \[
 \nabla\times\left(\frac{\mathrm d\vec{l}}{r}\right)=
 \nabla\left(\frac1r\right)\times\mathrm d\vec{l}\\=
@@ -4197,146 +4196,80 @@ d\vec{B}=\nabla \times d\vec{A}
 =k\frac{I\,\mathrm d\vec{l}}{r}
 }
 \]
-这个就是这个$\vec{A}$的真实面貌了，它长得确实像个势能，我们也称其为矢势。
+这个就是这个$\vec{A}$的真实面貌了，它长得确实像个势能，我们也称其为矢势。这个矢势由电流元直接产生，和电势十分的相似，也暗示我们电流元这个元素和电荷是类似的，至少在数学上具有等价地位。
 
-我们现在知道了$\vec{A}$的旋度，但是还是不知道 \(\vec{A}\) 的散度。由于
+现在我们知道了$\vec{A}$的旋度，但是还是不知道 \(\vec{A}\) 的散度。由于
 \[
 \nabla\cdot\mathrm d\vec{A}=
 \nabla\cdot\left(k\frac{I\,\mathrm d\vec{l}}{r}\right)=
-kI\,\mathrm d\vec{l}\cdot\nabla_{\vec{r}}\left(\frac{1}{r}\right)=
--kI\frac{\mathrm d\vec{l}\cdot(\vec{r}-\vec{r}')}{|\vec{r}-\vec{r}'|^3}.
+kI\,\mathrm d\vec{l}\cdot\nabla\left(\frac{1}{r}\right)=
+-kI\frac{\mathrm d\vec{l}\cdot\vec{r}}{\vec{r}^3}.
 \]
-因此，单个电流元的矢量势散度一般不为零。
+我们发现呢，单个电流元的矢量势散度一般不为零，除此之外没有了，这个散度是不被定义的，或者说我们可以自由定义的，这也应了我们可以通过$\nabla \chi $来自由调整$\vec A$的值。
 
-对闭合回路 \(C\)，
+你问我为什么不求梯度？小子，这可是个矢量，你对矢量求梯度得到的可是个张量，至少现在看来是不具有物理意义的。不过它散度的梯度倒是确实可以看看，于是我们可以写出：
 \[
-\vec{A}(\vec{r})
+\nabla^2\mathrm d\vec{A}=
+-kI\nabla(\frac{\mathrm d\vec{l}\cdot\vec{r}}{\vec{r}^3}).
+\]
+这个好像什么信息也给不出，不过求解$\nabla^2\mathrm d\vec{A}$确实是一个值得讨论的议题，简而言之我们可以尝试构造出它。
+
+既然散度的二阶运算无法得到$\nabla^2\mathrm d\vec{A}$，我们不妨试试旋度的二阶运算：
+\[
+\nabla \times(\nabla \times d\vec{A}) =\nabla \times d\vec{B}=?
+\qquad
+\nabla \cdot(\nabla \times d\vec{A}) =\nabla \cdot d\vec{B}=0
+\]
+磁场的旋度我们尚未明晰，第二个又是个恒成立的，不对，其实我们是用了结论来证明结论了，这也是常见的错误，记得吗：我们得到矢势就是根据磁场无源的假设得到的。
+
+那只能从第一条路入手喽，但是怎么构造磁场的旋度呢？
+
+在学习电场时候我们引出过斯托克斯公式~\eqref{eq:stokes}，这暗示我们从环路积分入手是个不错的选择。对任意以闭合曲线 \(C\) 为边界的曲面 \(S\)，应用斯托克斯定理：
+\[
+\oint d\vec{B}\cdot d\vec{l}
+=kI\oint \frac{\,\mathrm{d}\vec{l}\times\vec{r}}{r^3}\cdot d\vec{r}
+=kI\oint \frac{\,\mathrm{d}\vec{l}\times\vec{r}}{r^3}\cdot d\vec{r}
+=\int_S (\nabla\times d\vec{B})\cdot d\vec{S}
+\]
+我们知道叉乘和点乘的复合运算是轮换的，也就是说$(\mathrm{d}\vec{l}\times\vec{r})\cdot d\vec{r}=(\vec{r}\times d\vec{r})\cdot d\vec{l}$，对于直导线而言，我们考虑半径为$r$圆形的环路，那么其实这部分就是：
+\[
+kI\oint \frac{(\vec{r}\times d\vec{r})\cdot d\vec{l}}{r^3}=
+kI\oint \frac{2d\vec{S}\cdot d\vec{l}}{r^3}
 =
-kI\oint_C\frac{\mathrm d\vec{l}'}{|\vec{r}-\vec{r}'|}.
+=kI\oint \frac{2\pi r^2 \mathrm{d}{l}}{r^2}
+=2\pi kI\mathrm{d}{l}
 \]
+这样我们就得到单个电流元的磁场环量方程了，拓展到无限导线，也就是角度在$\pi$内的三角函数积分，也就是贡献了$2$的倍数，所以
 \[
-\nabla_{\vec{r}}\cdot\vec{A}=
-kI\oint_C
-\mathrm d\vec{l}'\cdot
-\nabla_{\vec{r}}\left(\frac{1}{|\vec{r}-\vec{r}'|}\right)=
--kI\oint_C
-\mathrm d\vec{l}'\cdot
-\nabla_{\vec{r}'}\left(\frac{1}{|\vec{r}-\vec{r}'|}\right)=
--kI\oint_C
-\mathrm d\left(\frac{1}{|\vec{r}-\vec{r}'|}\right)=0.
+\oint d\vec{B}\cdot d\vec{r}=2\pi kI\mathrm{d}{l} \Longleftrightarrow \oint \vec{B}\cdot d\vec{r}=4\pi kI
 \]
-这说明闭合稳恒电流的矢量势满足库仑规范 \(\nabla\cdot\vec{A}=0\)。
+这个定律叫做安培环路定律，我们刚刚凭空语言了它！
 
-对体电流分布，
+所以说从我们刚刚的推导步骤不难发现：
 \[
-\mathrm d\vec{A}
-=
-k\frac{\vec{J}(\vec{r}')\,\mathrm d^3r'}{|\vec{r}-\vec{r}'|}.
+\oint d\vec{B}\cdot d\vec{l}
+=kI\oint \frac{\,\mathrm{d}\vec{l}\times\vec{r}}{r^3}\cdot d\vec{r}
+=kI\oint \frac{(\vec{r}\times d\vec{r})\cdot d\vec{l}}{r^3}
+=kI\oint \frac{2 d\vec{l}}{r^3}\cdot d\vec{S}
+=\int_S (\nabla\times d\vec{B})\cdot d\vec{S}
 \]
-求散度：
+这也就是说磁场的斯托克斯定律是：
 \[
-\begin{aligned}
-\nabla\cdot\vec{A}
-&=
-k\int
-\vec{J}(\vec{r}')\cdot
-\nabla_{\vec{r}}\left(\frac{1}{|\vec{r}-\vec{r}'|}\right)
-\,\mathrm d^3r'\\
-&=
--k\int
-\vec{J}(\vec{r}')\cdot
-\nabla_{\vec{r}'}\left(\frac{1}{|\vec{r}-\vec{r}'|}\right)
-\,\mathrm d^3r'\\
-&=
-k\int
-\nabla_{\vec{r}'}\cdot
-\left[
-\frac{\vec{J}(\vec{r}')}{|\vec{r}-\vec{r}'|}
-\right]
-\,\mathrm d^3r'
--
-k\int
-\frac{\nabla'\cdot\vec{J}(\vec{r}')}{|\vec{r}-\vec{r}'|}
-\,\mathrm d^3r'.
-\end{aligned}
+\oint d\vec{B}\cdot d\vec{l}
+=\int_S (\nabla\times d\vec{B})\cdot d\vec{S}
+\Longleftrightarrow
+\nabla \times d\vec{B} = kI\oint \frac{2 d\vec{l}}{r^3} = 4\pi k\frac{dI}{dS}
 \]
-由高斯定理，第一项化为无穷远边界项，略去边界项后得
+很显然$4\pi k$绝对是个常数，虽然我们不知道它到底是什么，那么面积有关的变量只有电流一个了，所以我们知道磁场的旋度总是正比如电流对面积的平均变化率，也就是电流面密度这样的东西。这个量，就是电流密度，我们使用$\vec j$来表示，是个矢量：
 \[
-\boxed{
-\nabla\cdot\vec{A}
-=
--k\int
-\frac{\nabla'\cdot\vec{J}(\vec{r}')}{|\vec{r}-\vec{r}'|}
-\,\mathrm d^3r'
-}
+\vec j=\frac{dI}{dS}\,\hat{ n},
+\qquad
+I=\int_S \vec j\cdot d\vec S,
 \]
+有同学就要有疑问了：安培定律给出的本意其实是磁场的环路积分正比于环路形成的面内电流的大小，对于空间只有一根一维电线的情况，定义电流密度是很奇怪的，而取平均电流密度显得更加合理；显然只电流充满整个空间时候，电流密度才是好的选择。
 
-对于稳恒电流 \(\nabla'\cdot\vec{J}=0\)，从而 \(\nabla\cdot\vec{A}=0\)。
-恒定电流满足连续性方程
-\[
-\nabla\cdot\vec{J}=0,
-\]
-所以
-\[
-\nabla\cdot\vec{A}=0.
-\]
-另一方面，利用
-\[
-\nabla^2\frac{1}{\left|\vec{r}-\vec{r}'\right|}
-=-4\pi\delta(\vec{r}-\vec{r}'),
-\]
-得到
-\[
-\nabla^2\vec{A}
-=\frac{\mu_0}{4\pi}\int
-\vec{J}(\vec{r}')\,
-\nabla^2\frac{1}{\left|\vec{r}-\vec{r}'\right|}
-\,d^3r'
-=-\mu_0\vec{J}.
-\]
-于是
-\[
-\nabla\times\vec{B}
-=\nabla\times(\nabla\times\vec{A})
-=\nabla(\nabla\cdot\vec{A})-\nabla^2\vec{A}
-=\mu_0\vec{J}.
-\]
-这就是安培环路定律的微分形式。
+诚然，在导线自己的截面上电流是均匀的，电流密度完全成立；可是拿安培环路围出的任意曲面 \(S\) 去看，电流只从导线与 \(S\) 相交的那一个点穿过，\(\vec j\) 在 \(S\) 上几乎处处为零，在导线上却是一根 \(\delta\) 函数式的尖峰——这时“某点的电流密度”没有意义，只有穿过 \(S\) 的总电流 \(I\) 有意义。只有当电流分布在有截面的导体内部（体电流密度 \(\vec j\)）或铺在一层薄面上（面电流密度 \(\vec K\)）时，密度作为空间函数才真正好用。
 
-对任意以闭合曲线 \(C\) 为边界的曲面 \(S\)，应用斯托克斯定理：
-\[
-\oint_C \vec{B}\cdot d\vec{l}
-=\int_S (\nabla\times\vec{B})\cdot d\vec{S}
-=\mu_0\int_S \vec{J}\cdot d\vec{S}.
-\]
-而
-\[
-\int_S \vec{J}\cdot d\vec{S}=I_{\mathrm{enc}}
-\]
-是穿过曲面 \(S\) 的净电流，因此
-\[
-\oint_C \vec{B}\cdot d\vec{l}
-=\mu_0 I_{\mathrm{enc}}.
-\]
-这就是安培环路定律的积分形式，方向由右手螺旋定则确定。
-
-需要强调的是，上述推导使用了恒定电流条件 \(\nabla\cdot\vec{J}=0\)。对于非恒定电流情形，毕奥-萨伐尔定律本身不再完整，安培环路定律需加入位移电流项，成为
-\[
-\nabla\times\vec{B}
-=\mu_0\vec{J}+\mu_0\varepsilon_0
-\frac{\partial\vec{E}}{\partial t}.
-\]
-
-
-对无限长直导线，取以导线为轴、半径 \(r\) 的圆形安培环路，由对称性知 \(\vec{B}\) 沿切向且大小恒定，于是
-\[
-\oint \vec{B}\cdot d\vec{l}=B\,2\pi r=\mu_0 I,
-\]
-从而
-\[
-B=\frac{\mu_0 I}{2\pi r},
-\]
-方向由右手螺旋定则确定。
 
 对圆环轴线上的点，取电流元 \(I\,dl\)，它到场点的距离为
 \[
@@ -4382,31 +4315,7 @@ B=\frac{\mu_0 I}{4\pi a}\left(\sin\theta_1+\sin\theta_2\right),
 \]
 若两端在同侧，则角度需取符号或改写成差值形式。
 
-\paragraph{与安培环路定理的关系}
-毕奥-萨伐尔定律适用于任意稳恒电流分布，是计算磁场的普遍积分公式；安培环路定理
-\begin{equation}
-    \oint_L \vec{B}\cdot\mathrm{d}\vec{l}
-    =\mu_0 I_{\mathrm{内}}
-\end{equation}
-在电流分布具有较高对称性时更为方便。两者在稳恒电流条件下相互一致。
 
-\paragraph{磁介质中的说明}
-在线性、均匀、各向同性磁介质中，若只考虑自由电流，可引入磁场强度 \(\vec{H}\)，其与自由电流的关系为
-\begin{equation}
-    \vec{H}
-    =\frac{1}{4\pi}
-    \int
-    \frac{I_{\mathrm{f}}\,\mathrm{d}\vec{l}\times\hat{\vec{r}}}{r^2},
-    \qquad
-    \vec{B}=\mu\vec{H},
-\end{equation}
-其中 \(\mu=\mu_0\mu_r\) 为介质磁导率。对于简单均匀介质问题，也可将真空公式中的 \(\mu_0\) 替换为 \(\mu\)，但涉及磁化电流和分界面时应注意适用条件。
-
-毕奥-萨伐尔定律给出的磁场满足
-\begin{equation}
-    \nabla\cdot\vec{B}=0,
-\end{equation}
-即磁场是无源场，磁感线闭合，不存在磁单极子。
 
 当电荷运动起来，就会产生电流和磁场。电荷的运动遵循电荷守恒定律，也就是电荷总量不变，对于闭合曲面，从曲面上流出去的电荷和曲面内包裹的电荷随时间的变化率是相等的，其积分和微分表示为：
 \[
@@ -4426,3 +4335,159 @@ B=\frac{\mu_0 I}{4\pi a}\left(\sin\theta_1+\sin\theta_2\right),
 \section{量子电动力学的拉格朗日密度}
 
 本章从自由狄拉克场的全局 $U(1)$ 对称性出发，考察这一对称性由全局推广到局域时所遇到的困难；为了恢复不变性，我们被迫在微分算子中引入一个新的场 $A_{\mu}$，并由此确定它的变换规则与协变导数 $D_{\mu}$。最后我们构造出与 $\partial_{\mu}A_{\nu}$ 有关的规范不变组合，即场强张量，从而得到量子电动力学的拉格朗日密度。
+
+\subsection{全局对称性与守恒律}
+
+首先我们写出自由狄拉克拉格朗日密度：
+\[
+\mathcal{L}_{\text{free}}=\overline{\psi}\left( i\gamma^{\mu}\partial_{\mu}-m \right)\psi
+\]
+其中狄拉克共轭为：$\overline{\psi}=\psi^{\dagger}\gamma^{0}$，它表示转置并取复共轭。
+
+然后我们对旋量做一个全局变换：
+\[
+\psi(x)\to\psi'(x)=e^{iq\theta}\psi(x)
+\]
+\[
+\overline{\psi}(x)\to\overline{\psi}'(x)=e^{-iq\theta}\overline{\psi}(x)
+\]
+带入到我们的自由狄拉克拉格朗日密度中：
+\[
+\left\{
+\begin{aligned}
+\mathcal{L}_{\text{free}}' &= \overline{\psi}'\left( i\gamma^{\mu}\partial_{\mu}-m \right)\psi'
+=\left( e^{-iq\theta}\overline{\psi} \right)\left( i\gamma^{\mu}\partial_{\mu}-m \right)\left( e^{iq\theta}\psi \right)\\
+\mathcal{L}_{\text{free}} &= \overline{\psi}\left( i\gamma^{\mu}\partial_{\mu}-m \right)\psi
+\end{aligned}
+\right.
+\]
+不难看出自由狄拉克拉格朗日密度在全局 $U(1)$ 变换下是不变的，根据诺特定理，这个连续的全局对称性对应一个守恒流。守恒流为：
+\[
+j^{\mu}=q\overline{\psi}\gamma^{\mu}\psi
+\]
+可以验证 $\partial_{\mu}j^{\mu}=0$，即电荷守恒。
+
+\subsection{局域对称性破缺与规范场}
+
+那么现在我们对每一个坐标点定义一个变换 $\chi(x)$，于是局域变换可以写作：
+\[
+\left\{
+\begin{aligned}
+\psi(x) &\to \psi'(x)=e^{iq\chi(x)}\psi(x)\\
+\overline{\psi}(x) &\to \overline{\psi}'(x)=e^{-iq\chi(x)}\overline{\psi}(x)
+\end{aligned}
+\right.
+\]
+现在我们计算变换后的自由拉格朗日密度：
+\[
+\mathcal{L}_{\text{free}}'=\overline{\psi}'\left( i\gamma^{\mu}\partial_{\mu}-m \right)\psi'
+=\left( e^{-iq\chi}\overline{\psi} \right)\left( i\gamma^{\mu}\partial_{\mu}-m \right)\left( e^{iq\chi}\psi \right)
+\]
+其中 $\partial_{\mu}\left( e^{iq\chi}\psi \right)=e^{iq\chi}\partial_{\mu}\psi+iq\left( \partial_{\mu}\chi \right)e^{iq\chi}\psi$，于是：
+\[
+\mathcal{L}_{\text{free}}'=e^{-iq\chi}\overline{\psi}\left[ i\gamma^{\mu}\left( e^{iq\chi}\partial_{\mu}\psi+iq\left( \partial_{\mu}\chi \right)e^{iq\chi}\psi \right)-me^{iq\chi}\psi \right]
+\]
+\[
+=\overline{\psi}\left[ i\gamma^{\mu}\left( \partial_{\mu}\psi+iq\left( \partial_{\mu}\chi \right)\psi \right)-m\psi \right]
+\]
+\[
+=\overline{\psi}\left( i\gamma^{\mu}\partial_{\mu}-m \right)\psi+\overline{\psi}\left[ i\gamma^{\mu}\left( iq\left( \partial_{\mu}\chi \right) \right)\psi \right]
+\]
+\[
+=\mathcal{L}_{\text{free}}-q\left( \partial_{\mu}\chi \right)\left( \overline{\psi}\gamma^{\mu}\psi \right)
+\]
+那么我们得到：
+\[
+\mathcal{L}_{\text{free}}'=\mathcal{L}_{\text{free}}-\left( \partial_{\mu}\chi \right)j^{\mu}
+\]
+其中 $j^{\mu}$ 就是前面找到的守恒流。
+
+为了消除多出来的项，我们在微分算子中新引入一个场，即协变导数
+\[
+D_{\mu}\psi=\left( \partial_{\mu}+iqA_{\mu} \right)\psi
+\]
+这个新引入的场 $A_{\mu}$ 的行为尚未确定，所以我们的目标是：设计 $A_{\mu}$ 的变换规则，使得 $D_{\mu}\psi$ 和 $\psi$ 本身以相同的方式变换即“协变”：
+\[
+\left( D_{\mu}\psi \right)'=e^{iq\chi}\left( D_{\mu}\psi \right)
+\]
+我们分别展开左右两侧得到：
+\[
+\left\{
+\begin{aligned}
+\left( D_{\mu}\psi \right)' &= e^{iq\chi}\left[ \partial_{\mu}\psi+iq\left( \partial_{\mu}\chi \right)\psi+iqA_{\mu}'\psi \right]\\
+e^{iq\chi}\left( D_{\mu}\psi \right) &= e^{iq\chi}\left( \partial_{\mu}\psi+iqA_{\mu}\psi \right)
+\end{aligned}
+\right.
+\]
+\[
+\Rightarrow \partial_{\mu}\psi+iq\left( \partial_{\mu}\chi \right)\psi+iqA_{\mu}'\psi=\partial_{\mu}\psi+iqA_{\mu}
+\]
+也就是说最后得到的场要求：
+\[
+A_{\mu}'+\partial_{\mu}\chi=A_{\mu}
+\]
+场 $A_{\mu}$ 的变换满足：
+\[
+\boxed{A_{\mu}\to A_{\mu}'=A_{\mu}-\partial_{\mu}\chi}
+\]
+于是我们耦合后的拉格朗日密度可以写为：
+\[
+\mathcal{L}_{\text{matter}}=\overline{\psi}\left( i\gamma^{\mu}D_{\mu}-m \right)\psi
+\]
+展开后不难看出各项的物理意义：
+\[
+\mathcal{L}_{\text{matter}}
+=\underbrace{\overline{\psi}\left( i\gamma^{\mu}\partial_{\mu}-m \right)\psi}_{\mathcal{L}_{\text{free}}}
+\underbrace{-qA_{\mu}\left( \overline{\psi}\gamma^{\mu}\psi \right)}_{\text{相互作用项}-A_{\mu}j^{\mu}}
+\]
+我们不难验证新的拉格朗日密度在局域变换下不变：
+\[
+\mathcal{L}_{\text{matter}}'=\mathcal{L}_{\text{matter}}
+\]
+
+\subsection{构造规范场的动力学项}
+
+我们有了符合要求的场，但我们并不确定其动力学意义是怎样的，从上面的推导我们知道
+\[
+\partial_{\mu}A_{\nu}'=\partial_{\mu}\left( A_{\nu}-\partial_{\nu}\chi \right)=\partial_{\mu}A_{\nu}-\partial_{\mu}\partial_{\nu}\chi
+\]
+我们需要构造一个与 $\partial_{\mu}A_{\nu}$ 相关的、规范不变的组合。
+
+考虑 $D_{\mu}$ 的对易子：
+\[
+\left[ D_{\mu},D_{\nu} \right]\psi=D_{\mu}\left( D_{\nu}\psi \right)-D_{\nu}\left( D_{\mu}\psi \right)
+\]
+计算这个对易子可以发现，所有关于 $\psi$ 的导数项 $\partial_{\mu}\psi$ 和 $\partial_{\nu}\partial_{\mu}\psi$ 都抵消了，$A_{\mu}A_{\nu}$ 项也因为对称性而抵消。
+
+最终结果是：
+\[
+\left[ D_{\mu},D_{\nu} \right]\psi=iq\left( \partial_{\mu}A_{\nu}-\partial_{\nu}A_{\mu} \right)
+\]
+我们定义场强张量：
+\[
+\boxed{F_{\mu\nu}=\partial_{\mu}A_{\nu}-\partial_{\nu}A_{\mu}}
+\]
+所以：
+\[
+\left[ D_{\mu},D_{\nu} \right]\psi=iqF_{\mu\nu}
+\]
+因而拉格朗日密度动力学项可以写为：
+\[
+\mathcal{L}=\frac{1}{4}F^{\mu\nu}F_{\mu\nu}
+\]
+所以电动力学规范理论拉格朗日密度：
+\[
+\mathcal{L}_{QED}
+=\underbrace{\overline{\psi}\left( i\gamma^{\mu}\partial_{\mu}-m \right)\psi}_{\text{自由电子场}}
+\underbrace{-qA_{\mu}\left( \overline{\psi}\gamma^{\mu}\psi \right)}_{\text{电子与光子的相互作用}}
+\underbrace{-\frac{1}{4}F^{\mu\nu}F_{\mu\nu}}_{\text{自由电磁场（光子）}}
+\]
+用狄拉克算符简写作：
+\[
+\boxed{\mathcal{L}_{QED}
+=\underbrace{\overline{\psi}\left( i\gamma^{\mu}D_{\mu}-m \right)\psi}_{\text{自由电子场}}
+\underbrace{-\frac{1}{4}F^{\mu\nu}F_{\mu\nu}}_{\text{自由电磁场（光子）}}}
+\]
+
+
+\end{document}
